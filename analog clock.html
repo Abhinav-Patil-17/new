@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+
+    <style>
+        body{
+            background: url(C:./Users/forla/Downloads/colorful-2174045_1920.png) no-repeat;
+        }
+        #clockContainer{
+            position: relative;
+            margin: auto;
+            height: 40vw;
+            width: 43vw;
+            background: url(C:./Users/forla/Desktop/analog_clock[1]/pc787xLEi.png) no-repeat;
+            background-size: 90%;
+            background-position-x: 30px;
+            background-position-y: 10px;
+            /*background-color: white;*/
+        }
+
+        #hour, #minute, #second{
+            position: absolute;
+            background: black;
+            border-radius: 10px;
+            transform-origin: bottom;
+        }
+
+        #hour{
+        width: 1.8%;
+        height: 22%;
+        top: 28%;
+        left: 48.85%;
+        opacity: 0.8;   
+        }
+
+        #minute{
+            width: 1.6%;
+            height: 35%;
+            top: 15%;
+            left: 48.9%;
+            opacity: 0.8;
+        }
+
+        #second{
+            width: 1%;
+            height: 40%;
+            top: 10%;
+            left: 49.25%;
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="clockContainer">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+
+    <script>
+        setInterval(() => {
+            d = new Date();
+            htime = d.getHours();
+            mtime = d.getMinutes();
+            stime = d.getSeconds();
+            hrotation = 30*htime + mtime/2;
+            mrotation = 6*mtime;
+            srotation = 6*stime;
+
+            hour.style.transform = `rotate(${hrotation}deg)`;
+            minute.style.transform = `rotate(${mrotation}deg)`;
+            second.style.transform = `rotate(${srotation}deg)`;
+        }, 1000);
+    </script>
+    
+</body>
+</html>
